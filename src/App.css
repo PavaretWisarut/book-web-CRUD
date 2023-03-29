@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation:wght@500&family=Sarabun:wght@300&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Edu NSW ACT Foundation', cursive;
+  font-family: 'Sarabun', sans-serif;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#required:after {
+  content:" *";
+  color: red;
+}
+
+.container {
+  margin: auto;
+  width: 1000px;
+  height: 800px;
+}
+
+.book-product {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2%;
+  margin-bottom: 2%;
+
+}
+
+.book-product td,
+.book-product th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.book-product tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.book-product tr:hover {
+  background-color: #ddd;
+}
+
+.book-product th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: black;
+  color: white;
+}
+
+.box-table {
+  margin: auto;
+  width: 100%;
+}
+
+.header-text {
+  margin-left: 26%;
+}
+
+.input-name {
+  width: 40%;
+  height: 20px;
+  font-size: medium;
+  margin-bottom: 1%;
+  padding-left: 1%;
+}
+
+.input-price {
+  width: 38.3%;
+  height: 20px;
+  font-size: medium;
+  padding-left: 1%;
+  margin-left: 1%;
+}
+
+
+.insert {
+  background: #293242;
+  border: 1px solid #293242;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: nunito, roboto, proxima-nova, "proxima nova", sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 16px;
+  min-height: 40px;
+  outline: 0;
+  padding: 12px 14px;
+  text-align: center;
+  text-rendering: geometricprecision;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  margin-top: 2%;
+  margin-left: 45%;
+  margin-bottom: 5%;
+
+}
+
+.insert:hover,
+.insert:active {
+  background-color: initial;
+  background-position: 0 0;
+  color: #293242;
+}
+
+.insert:active {
+  opacity: .5;
+}
+
+.update {
+  background: #ffff7f;
+  border: 1px solid #ffff7f;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  box-sizing: border-box;
+  color: #695A5B;
+  cursor: pointer;
+  display: inline-block;
+  font-family: nunito, roboto, proxima-nova, "proxima nova", sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 16px;
+  min-height: 40px;
+  outline: 0;
+  padding: 12px 14px;
+  text-align: center;
+  text-rendering: geometricprecision;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  margin-left: 20%;
+
+
+}
+
+.update:hover,
+.update:active {
+  background-color: initial;
+  background-position: 0 0;
+  color: #695A5B;
+}
+
+.update:active {
+  opacity: .5;
+}
+
+.delete {
+  background: #F898A4;
+  border: 1px solid #F898A4;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: nunito, roboto, proxima-nova, "proxima nova", sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 16px;
+  min-height: 40px;
+  outline: 0;
+  padding: 12px 14px;
+  text-align: center;
+  text-rendering: geometricprecision;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  margin-left: 20%;
+
+}
+
+.delete:hover,
+.delete:active {
+  background-color: initial;
+  background-position: 0 0;
+  color: #F898A4;
+}
+
+.delete:active {
+  opacity: .5;
+}
+
+#upt-name {
+  width: 60%;
+  height: 40px;
+  font-size: large;
+  margin-bottom: 2%;
+  padding-left: 2%;
+}
+
+#upt-price {
+  width: 60%;
+  height: 40px;
+  font-size: large;
+  padding-left: 2%;
+}
