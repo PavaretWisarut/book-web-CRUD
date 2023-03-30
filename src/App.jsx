@@ -9,6 +9,7 @@ import { Table, Button, Modal, Form } from "react-bootstrap";
 // import fecthdata from "./fuction";
 function App() {
   const [bookdata, setBookdata] = useState([]);
+  const [search , setSearch] = useState("")
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [editname, setEditname] = useState("");
@@ -30,13 +31,18 @@ function App() {
     setShow(true);
     setSelectedrow(data.id);
     setEditname(data.name);
-    setEditprice(data.price)
+    setEditprice(data.price);
     // setPrice("");
   };
 
-  const getdata = async () => {
+  const getdata = async (searchname) => {
+    console.log('searchname = ',searchname);
     await axios
-      .get("http://localhost:8000/api/book/getbook")
+      .get(
+        `http://localhost:8000/api/book/getbook?searchname=${
+          searchname ? searchname : ""
+        }`
+      )
       .then((response) => {
         console.log(response.data.item);
         setBookdata(response.data.item);
@@ -120,6 +126,11 @@ function App() {
     console.log("name = ", name);
   };
 
+  const inputsearch = (e) => {
+    setSearch(e.target.value);
+    console.log("name = ", search);
+  };
+
   const inputprice = (e) => {
     setPrice(e.target.value);
     console.log("price = ", price);
@@ -167,6 +178,22 @@ function App() {
   return (
     <div className="container">
       <h1 style={{ textAlign: "center", marginTop: "1%" }}>Book Shop</h1>
+      <label className="header-text" style={{ marginTop: "1%" }}>
+        ค้นหาจากชื่อสินค้า :{" "}
+      </label>{" "}
+      <div>
+        <form onSubmit={getdata(search)}>
+          <input
+            name="searchname"
+            className="input-name"
+            type="text"
+            value={search}
+            onChange={inputsearch}
+            placeholder="ระบุชื่อสินค้า"
+          ></input>
+          <button>ค้นหา</button>
+        </form>
+      </div>
       <div className="box-table">
         <table className="book-product">
           <tr>
@@ -212,7 +239,9 @@ function App() {
           })}
         </table>
       </div>
-      <label className="header-text" id="required">ชื่อสินค้า : </label>{" "}
+      <label className="header-text" id="required">
+        ชื่อสินค้า :{" "}
+      </label>{" "}
       <input
         name="name"
         className="input-name"
@@ -223,7 +252,9 @@ function App() {
         placeholder="ระบุชื่อสินค้า เช่น หนังสือสตาร์วอร์"
       ></input>
       <br></br>
-      <label className="header-text" id="required">ราคาสินค้า : </label>
+      <label className="header-text" id="required">
+        ราคาสินค้า :{" "}
+      </label>
       <input
         name="price"
         maxLength="7"
@@ -264,7 +295,9 @@ function App() {
             <Button variant="secondary" onClick={handleClose}>
               Close
             </Button>
-            <Button variant="primary" type="submit">Save changes</Button>
+            <Button variant="primary" type="submit">
+              Save changes
+            </Button>
           </Modal.Footer>
         </Form>
       </Modal>
