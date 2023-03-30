@@ -9,7 +9,7 @@ import { Table, Button, Modal, Form } from "react-bootstrap";
 // import fecthdata from "./fuction";
 function App() {
   const [bookdata, setBookdata] = useState([]);
-  const [search , setSearch] = useState("")
+  const [search, setSearch] = useState("");
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [editname, setEditname] = useState("");
@@ -20,6 +20,12 @@ function App() {
   useEffect(() => {
     getdata();
   }, []);
+
+  const resetfield = (e) => {
+    e.preventDefault()
+    setSearch("");
+  };
+
   const handleClose = () => {
     setShow(false);
     setEditname("");
@@ -36,7 +42,7 @@ function App() {
   };
 
   const getdata = async (searchname) => {
-    console.log('searchname = ',searchname);
+    console.log("searchname = ", searchname);
     await axios
       .get(
         `http://localhost:8000/api/book/getbook?searchname=${
@@ -182,7 +188,7 @@ function App() {
         ค้นหาจากชื่อสินค้า :{" "}
       </label>{" "}
       <div>
-        <form onSubmit={getdata(search)}>
+        <form>
           <input
             name="searchname"
             className="input-name"
@@ -191,8 +197,10 @@ function App() {
             onChange={inputsearch}
             placeholder="ระบุชื่อสินค้า"
           ></input>
-          <button>ค้นหา</button>
+          <button type="submit"}>ค้นหา</button>
+          <button onClick={resetfield}>รีเซ็ต</button>
         </form>
+       
       </div>
       <div className="box-table">
         <table className="book-product">
