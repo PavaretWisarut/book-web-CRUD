@@ -197,7 +197,7 @@ function App() {
             onChange={inputsearch}
             placeholder="ระบุชื่อสินค้า"
           ></input>
-          <button type="submit"}>ค้นหา</button>
+          <button type="submit">ค้นหา</button>
           <button onClick={resetfield}>รีเซ็ต</button>
         </form>
        
