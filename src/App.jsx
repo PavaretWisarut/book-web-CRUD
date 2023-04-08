@@ -22,8 +22,9 @@ function App() {
   }, []);
 
   const resetfield = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     setSearch("");
+    getdata();
   };
 
   const handleClose = () => {
@@ -41,14 +42,15 @@ function App() {
     // setPrice("");
   };
 
+  // const searchbar = async (searchname) => {
+  //   e.preventDefault();
+  //   console.log("search = ", searchname);
+  // };
+
   const getdata = async (searchname) => {
     console.log("searchname = ", searchname);
     await axios
-      .get(
-        `http://localhost:8000/api/book/getbook?searchname=${
-          searchname ? searchname : ""
-        }`
-      )
+      .get(`http://localhost:8000/api/book/getbook?searchname=${searchname ? searchname : ""}`)
       .then((response) => {
         console.log(response.data.item);
         setBookdata(response.data.item);
@@ -127,6 +129,15 @@ function App() {
     });
   };
 
+  // const searchbox = (searchbar) => {
+  //   console.log("searchnamewww = ", searchbar);
+  //   let c = 0;
+  //   if (searchbar != "") {
+  //     let query = `?searchname=${searchbar ? searchbar : ""}`;
+  //     getdata(query);
+  //   }
+  // };
+
   const inputname = (e) => {
     setName(e.target.value);
     console.log("name = ", name);
@@ -152,55 +163,58 @@ function App() {
     console.log("edit_price = ", editprice);
   };
 
-  const onfinish = (value) => {
-    value.preventDefault();
-    Swal.fire({
-      title: "Are you sure?",
-      text: "You want to Update ?",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, Update it!",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        axios
-          .put(`http://localhost:8000/api/book/updatebook`, {
-            id: selectedrow,
-            name: editname,
-            price: editprice,
-          })
-          .then((response) => {
-            Swal.fire("Update!", "Your file has been Update.", "success");
-            getdata();
-            handleClose();
-            setName("");
-            setPrice("");
-          });
-      }
-    });
-  };
+  // const onfinish = (value) => {
+  //   value.preventDefault();
+  //   Swal.fire({
+  //     title: "Are you sure?",
+  //     text: "You want to Update ?",
+  //     icon: "warning",
+  //     showCancelButton: true,
+  //     confirmButtonColor: "#3085d6",
+  //     cancelButtonColor: "#d33",
+  //     confirmButtonText: "Yes, Update it!",
+  //   }).then((result) => {
+  //     if (result.isConfirmed) {
+  //       axios
+  //         .put(`http://localhost:8000/api/book/updatebook`, {
+  //           id: selectedrow,
+  //           name: editname,
+  //           price: editprice,
+  //         })
+  //         .then((response) => {
+  //           Swal.fire("Update!", "Your file has been Update.", "success");
+  //           getdata();
+  //           handleClose();
+  //           setName("");
+  //           setPrice("");
+  //         });
+  //     }
+  //   });
+  // };
 
   return (
     <div className="container">
       <h1 style={{ textAlign: "center", marginTop: "1%" }}>Book Shop</h1>
-      <label className="header-text" style={{ marginTop: "1%" }}>
-        ค้นหาจากชื่อสินค้า :{" "}
-      </label>{" "}
       <div>
-        <form>
+        <form >
+          <label className="header-text" style={{ marginTop: "1%" }}>
+            ค้นหาจากชื่อสินค้า :{" "}
+          </label>{" "}
           <input
             name="searchname"
-            className="input-name"
+            className="input-search"
             type="text"
             value={search}
             onChange={inputsearch}
             placeholder="ระบุชื่อสินค้า"
           ></input>
-          <button type="submit">ค้นหา</button>
-          <button onClick={resetfield}>รีเซ็ต</button>
+          <button type="submit" className="button-88">
+            ค้นหา
+          </button>
+          <button onClick={resetfield} className="resetBut">
+            รีเซ็ต
+          </button>
         </form>
-       
       </div>
       <div className="box-table">
         <table className="book-product">
