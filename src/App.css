@@ -71,6 +71,10 @@ input::-webkit-inner-spin-button {
   width: 100%;
 }
 
+.headerBook{
+  margin-left: 15%;
+}
+
 .header-text {
   margin-left: 26%;
 }
@@ -286,4 +290,34 @@ input::-webkit-inner-spin-button {
 
 .resetBut:active {
   box-shadow: 0 0.3em 1em -0.5em #ad5389;
+}
+
+.logoutbut {
+  align-items: center;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 0.7em 1.4em 0.7em 1.1em;
+  color: white;
+  background: #695A5B;
+  background: linear-gradient(0deg, #695A5B 0%, #695A5B 100%);
+  border: none;
+  box-shadow: 0 0.7em 1.5em -0.5em #695A5B;
+  letter-spacing: 0.05em;
+  border-radius: 20em;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin-left: 1%;
+  text-decoration: none;
+}
+
+.logoutbut:hover {
+  box-shadow: 0 0.5em 1.5em -0.5em #695A5B;
+  color: white;
+}
+
+.logoutbut:active {
+  box-shadow: 0 0.3em 1em -0.5em #695A5B;
 }
