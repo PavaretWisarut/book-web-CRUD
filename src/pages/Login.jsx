@@ -1,34 +1,51 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link , useNavigate} from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Button , Col, Row, Container, Form } from "react-bootstrap";
 import "../login.css";
+import pic from '../assets/pictures/Background.png'
+import axios from "axios";
+
 function Login() {
+  const navigate = useNavigate()
+  const [username , setUsername] = useState('')
+  const [password , setPassword] = useState('')
+
+  let access = () =>{
+    
+    navigate('/home')
+  }
   return (
-    <>
+    <div>
       <form>
-        <div className="box">
-          <h1>Login Page</h1>
+        <Container className="logincontainer">
+          <Row>
+            <Col xs={12}>
+              <h1 className="login-head">Login Page</h1>
+            </Col>
+            <Form>
+              <Form.Group
+                className="mb-3"
+                controlId="exampleForm.ControlInput1"
+              >
+                <Form.Label>Username</Form.Label>
+                <Form.Control type="text" placeholder="username" onChange={(e) => setUsername(e.target.value)}/>
+              </Form.Group>
+              <Form.Group
+                className="mb-3"
+                controlId="exampleForm.ControlInput1"
+              >
+                <Form.Label>Password</Form.Label>
+                <Form.Control type="password" placeholder="password" onChange={(e) => setPassword(e.target.value)}/>
+              </Form.Group>
+              <Button variant="primary" className="loginbutt" onClick={login}>Log in Admin</Button>{' '}
+            </Form>
+            
+          </Row>
+        </Container>
 
-          <input
-            type="text"
-
-
-            placeholder="username"
-            className="email"
-          />
-
-          <input
-            type="password"
-
-            placeholder="password"
-            className="email"
-          />
-
-          <a href="#">
-            <Link id="btn2" to="/home">Login</Link>
-          </a>
-        </div>
       </form>
-    </>
+    </div>
   );
 }
 

@@ -171,7 +171,7 @@ function Home() {
 
 
   return (
-    <div className="container">
+    <div className="homecontainer">
       <h1 style={{ textAlign: "center", marginTop: "1%" }}>Book Shop</h1>
       <div>
           <label className="headerBook" style={{ marginTop: "1%" }}>

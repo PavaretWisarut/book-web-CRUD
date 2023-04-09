@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation:wght@500&family=Sarabun:wght@300&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+
+body {
+    font-family: 'Edu NSW ACT Foundation', cursive;
+    font-family: 'Sarabun', sans-serif;
+}
+
+.logincontainer {
+    margin: auto;
+    width: 500px;
+    height: 350px;
+    margin-top: 12%;
+    /* outline: solid 1px black; */
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.login-head {
+    padding-top: 3%;
+    text-align: center;
+}
+
+.loginbutt {
+    margin-top: 2%;
+    width: 100%;
+    background-color: #C0E4F6;
+    color: black;
+    font-weight: 300;
+    font-size: 1.2rem;
+}
+
+.loginbutt:hover {
+    background-color: #FFBBDA;
+    color: black;
+}
+
+.loginbutt:focus, .loginbutt:active:focus, .loginbutt.active:focus{
+    outline:none;
+    box-shadow:none;
+}
