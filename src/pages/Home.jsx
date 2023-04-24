@@ -105,7 +105,7 @@ function Home() {
       }
     });
   };
-
+//This is a test
   const deletedata = async (id, e) => {
     Swal.fire({
       title: "Are you sure?",
